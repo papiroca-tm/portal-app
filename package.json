@@ -1,14 +1,15 @@
 {
-  "name": "electron-quick-start",
+  "name": "dubki_web_portal",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . dubkiWebPortal --all --app-version=0.1.0 --out=dist --ignore=dist --prune",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\""
   },
-  "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [],
-  "author": "GitHub",
+  "author": "vyacheslav danshin",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^1.4.1",
