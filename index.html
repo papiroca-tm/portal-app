@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
 
-  <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
-  </script>
+<head>
+  <meta charset="utf-8">
+  <title>Российский концерн Дубки</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+  <script src="common/js/jquery-1.12.1.min.js"></script>
+  <script src="common/js/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="common/css/jquery-ui.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+  <script src="js/login.js"></script>
+  <script>if (window.module) module = window.module;</script>
+  <!--<script>
+    $(document).ready(function () {
+      initLogin();
+    });
+  </script>-->
+</head>
+
+<body>
+  <div class="container">
+    <p class="logo"><img src="img/logo1.png"></p>
+    <form action="javascript:login()">
+      <label>Имя пользователя:</label>
+      <input id="term" type="name" name="term" autocomplete="new-password">
+      <label>Пароль:</label>
+      <input id="pass" type="password" name="pass" autocomplete="new-password">
+      <div id="lower">
+        <div class="loader" hidden="true">
+          <div class="ball"></div>
+          <div class="ball1"></div>
+        </div>
+        <input type="submit" value="Войти">
+      </div>
+    </form>
+  </div>
+</body>
+
 </html>

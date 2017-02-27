@@ -10,14 +10,14 @@ let appIcon = null
 app.on('ready', () => {
   appIcon = new Tray('./ico.jpeg')
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Открыть портал', click() { console.log('Открыть портал') } },
+    // { label: 'Открыть портал', click() { console.log('Открыть портал') } },
     {
       label: 'Войти', click() {
         console.log('Войти')
         showLoginWindow()
       }
     },
-    { label: 'Выйти', click() { console.log('Выйти') } },
+    { label: 'Выйти', enabled: false,  click() { console.log('Выйти') } },
     {
       label: 'Закрыть', click() {
         console.log('Закрыть')
@@ -43,24 +43,30 @@ function showLoginWindow() {
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800, height: 600,
+    // width: 800, height: 600,
     // modal: true,
-    center: true,
+    // center: true,
     // alwaysOnTop: true,
     // closable: false,
+    // x: 200,
+    // y: 200,
+    // fullscreen: true
     // frame: false
   })
 
-  mainWindow.center()
+  
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
+  mainWindow.center()
+  mainWindow.maximize()
+  mainWindow.setMenu(null)
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  //  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   // mainWindow.on('closed', function () {
