@@ -17,7 +17,7 @@ app.on('ready', () => {
         showLoginWindow()
       }
     },
-    { label: 'Выйти', enabled: false,  click() { console.log('Выйти') } },
+    { label: 'Выйти', enabled: false, click() { console.log('Выйти') } },
     {
       label: 'Закрыть', click() {
         console.log('Закрыть')
@@ -54,7 +54,7 @@ function createWindow() {
     // frame: false
   })
 
-  
+
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
@@ -66,7 +66,7 @@ function createWindow() {
   mainWindow.setMenu(null)
 
   // Open the DevTools.
-  //  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   // mainWindow.on('closed', function () {
@@ -75,6 +75,15 @@ function createWindow() {
   //   // when you should delete the corresponding element.
   //   mainWindow = null
   // })
+  mainWindow.webContents.on('new-window', function (e, url,fn,d,o,af) {
+    // e.preventDefault();
+    // console.dir(url)
+    // console.dir(fn)
+    // console.dir(d)
+    // console.dir(o)
+    // console.dir(af)
+    require('electron').shell.openExternal('');
+  });
 }
 
 // This method will be called when Electron has finished

@@ -18,7 +18,7 @@ $(function () {
                 return;
             }
 
-            $.post("http://192.168.3.87:3000/autocomplete", { term: termShort })
+            $.post("http://192.168.251.86:3000/autocomplete", { term: termShort })
                 .done(function (data) {
                     cache[termShort] = data;
                     var result = data.filter(function (sotr) {
@@ -55,7 +55,7 @@ function login() {
     var pass = $('#pass').val();
 
     $.ajax({
-        url: 'http://192.168.3.87:3000/login',
+        url: 'http://192.168.251.86:3000/login',
         type: 'POST',
         data: { tab: tab, pass: pass },
         beforeSend: function () {
@@ -74,8 +74,8 @@ function login() {
             });
         },
         success: function (data) {
-            // require('electron').shell.openExternal(`http://192.168.3.87:3000${data.redirect}`)            
-            window.location.href = `http://192.168.3.87:3000${data.redirect}`
+            // require('electron').shell.openExternal(`http://192.168.251.86:3000${data.redirect}`)            
+            window.location.href = `http://192.168.251.86:3000${data.redirect}`
         }
     });
 }
